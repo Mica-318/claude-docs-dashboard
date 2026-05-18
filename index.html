@@ -221,18 +221,8 @@
 
 <div class="container">
   <nav class="sidebar">
-    <h3>🎯 Prompt Engineering</h3>
-    <a class="nav-item active" onclick="show('prompt-overview')">
-      Overview 概览
-      <span class="cn">提示词工程总览</span>
-    </a>
-    <a class="nav-item" onclick="show('prompt-best')">
-      Best Practices 最佳实践
-      <span class="cn">Claude 提示词最佳实践</span>
-    </a>
-
-    <h3>🧩 API & Features</h3>
-    <a class="nav-item" onclick="show('intro')">
+    <h3>🚀 入门</h3>
+    <a class="nav-item active" onclick="show('intro')">
       Intro 简介
       <span class="cn">Claude 核心能力</span>
     </a>
@@ -249,7 +239,21 @@
       <span class="cn">Opus / Sonnet / Haiku</span>
     </a>
 
-    <h3>🔧 Advanced</h3>
+    <h3>✍️ Prompt Engineering</h3>
+    <a class="nav-item" onclick="show('prompt-overview')">
+      Overview 概览
+      <span class="cn">提示词工程总览</span>
+    </a>
+    <a class="nav-item" onclick="show('prompt-best')">
+      Best Practices 最佳实践
+      <span class="cn">Claude 提示词最佳实践</span>
+    </a>
+    <a class="nav-item" onclick="show('prompting-best-practices-opus47')">
+      Opus 4.7 调优指南
+      <span class="cn">effort · 设计默认值 · 代码评审</span>
+    </a>
+
+    <h3>🔧 高级功能</h3>
     <a class="nav-item" onclick="show('thinking')">
       Extended Thinking 扩展思考
       <span class="cn">深度推理能力</span>
@@ -263,6 +267,24 @@
       <span class="cn">函数调用与工具定义</span>
     </a>
 
+    <h3>⚙️ API 核心能力</h3>
+    <a class="nav-item" onclick="show('prompt-caching')">
+      Prompt Caching 提示词缓存
+      <span class="cn">节省成本的关键技术</span>
+    </a>
+    <a class="nav-item" onclick="show('batch-processing')">
+      Batch Processing 批量处理
+      <span class="cn">50%折扣异步批量调用</span>
+    </a>
+    <a class="nav-item" onclick="show('files-citations')">
+      Files API &amp; Citations
+      <span class="cn">文件管理与引用溯源</span>
+    </a>
+    <a class="nav-item" onclick="show('task-budgets')">
+      Task Budgets (Beta)
+      <span class="cn">Agentic Loop Token 预算控制</span>
+    </a>
+
     <h3>🎓 互动教程 (GitHub)</h3>
     <a class="nav-item" onclick="show('tut-guide')">
       📋 学习路线图
@@ -273,16 +295,16 @@
       <span class="cn">XML 标签的正确用法</span>
     </a>
     <a class="nav-item" onclick="show('tut-format')">
-      Ch05 · 格式控制 & 预填充
+      Ch05 · 格式控制 &amp; 预填充
       <span class="cn">输出格式精确控制</span>
-    </a>
-    <a class="nav-item" onclick="show('tut-fewshot')">
-      Ch07 · Few-Shot 示例
-      <span class="cn">示例如何让Claude外推</span>
     </a>
     <a class="nav-item" onclick="show('tut-thinking')">
       Ch06 · Precognition 逐步思考
       <span class="cn">顺序敏感 + 让Claude先思考</span>
+    </a>
+    <a class="nav-item" onclick="show('tut-fewshot')">
+      Ch07 · Few-Shot 示例
+      <span class="cn">示例如何让Claude外推</span>
     </a>
     <a class="nav-item" onclick="show('tut-hallucination')">
       Ch08 · 避免幻觉
@@ -310,18 +332,11 @@
       Eval &amp; Testing 评估测试
       <span class="cn">定义成功标准 + 自动评分</span>
     </a>
+
     <h3>📋 参考资料</h3>
     <a class="nav-item" onclick="show('migration-guide')">
       Migration Guide 4.6→4.7
       <span class="cn">官方迁移指南 · 破坏性变更清单</span>
-    </a>
-    <a class="nav-item" onclick="show('task-budgets')">
-      Task Budgets (Beta)
-      <span class="cn">Agentic Loop Token 预算控制</span>
-    </a>
-    <a class="nav-item" onclick="show('prompting-best-practices-opus47')">
-      Prompting Best Practices — Opus 4.7
-      <span class="cn">官方完整调优指南</span>
     </a>
     <a class="nav-item" onclick="show('tool-reference')">
       Tool Reference 工具参考手册
@@ -339,24 +354,9 @@
       MCP — Model Context Protocol
       <span class="cn">AI 应用连接外部系统的标准</span>
     </a>
-    <h3>⚙️ API 核心能力</h3>
-    <a class="nav-item" onclick="show('prompt-caching')">
-      Prompt Caching 提示词缓存
-      <span class="cn">节省成本的关键技术</span>
-    </a>
-    <a class="nav-item" onclick="show('batch-processing')">
-      Batch Processing 批量处理
-      <span class="cn">50%折扣异步批量调用</span>
-    </a>
-    <a class="nav-item" onclick="show('files-citations')">
-      Files API &amp; Citations
-      <span class="cn">文件管理与引用溯源</span>
-    </a>
-
-    <h3>🆕 Opus 4.7 官方调优指南</h3>
     <a class="nav-item" onclick="show('opus47')">
       Opus 4.7 Prompting Guide
-      <span class="cn">迁移 & 调优必读</span>
+      <span class="cn">迁移 &amp; 调优必读（旧版）</span>
     </a>
   </nav>
 
