@@ -190,6 +190,22 @@
       font-size: 0.85rem;
     }
 
+    /* ─── Arch Cards (mobile only) ─── */
+    .arch-cards { display: none; }
+    .arch-card {
+      border: 1px solid var(--border); border-radius: 8px;
+      padding: 0.75rem 1rem; margin-bottom: 0.6rem;
+      background: var(--bg-en);
+    }
+    .arch-tag { margin-bottom: 0.3rem; }
+    .arch-tag code { font-size: 0.78rem; color: var(--accent2); }
+    .arch-title { font-weight: 600; font-size: 0.88rem; margin-bottom: 0.2rem; }
+    .arch-desc { font-size: 0.8rem; color: var(--text-dim); line-height: 1.5; }
+    @media(max-width:600px) {
+      .arch-table { display: none; }
+      .arch-cards { display: block; }
+    }
+
     /* ─── Mobile Nav Button ─── */
     .mob-nav-btn {
       display: none;
@@ -3565,7 +3581,8 @@ client.messages.create(
       <div class="card">
         <div class="card-head"><h3>全局结构概览 <span class="zh">7 个顶层模块</span></h3><span class="badge amber">Architecture</span></div>
         <div class="col-full">
-          <table>
+          <!-- Desktop: table; Mobile: card list -->
+          <table class="arch-table">
             <thead><tr><th>模块标签</th><th>核心职责</th><th>设计意图</th></tr></thead>
             <tbody>
               <tr><td><code>&lt;product_information&gt;</code></td><td>产品知识边界</td><td>限定 Claude 能说什么、不能说什么，防止过时信息误导</td></tr>
@@ -3579,6 +3596,17 @@ client.messages.create(
               <tr><td><code>&lt;knowledge_cutoff&gt;</code></td><td>知识截止日期处理</td><td>2026年1月底截止，提示用户开启网络搜索</td></tr>
             </tbody>
           </table>
+          <div class="arch-cards">
+            <div class="arch-card"><div class="arch-tag"><code>&lt;product_information&gt;</code></div><div class="arch-title">产品知识边界</div><div class="arch-desc">限定 Claude 能说什么、不能说什么，防止过时信息误导</div></div>
+            <div class="arch-card"><div class="arch-tag"><code>&lt;refusal_handling&gt;</code></div><div class="arch-title">拒绝策略 + 安全边界</div><div class="arch-desc">儿童安全、武器、恶意代码的硬红线</div></div>
+            <div class="arch-card"><div class="arch-tag"><code>&lt;legal_and_financial_advice&gt;</code></div><div class="arch-title">法律/财务建议处理</div><div class="arch-desc">专业领域降责，引导用户自主决策</div></div>
+            <div class="arch-card"><div class="arch-tag"><code>&lt;tone_and_formatting&gt;</code></div><div class="arch-title">语气与格式规范</div><div class="arch-desc">反过度格式化，行动优先于澄清，能力自检</div></div>
+            <div class="arch-card"><div class="arch-tag"><code>&lt;user_wellbeing&gt;</code></div><div class="arch-title">用户心理健康保护</div><div class="arch-desc">自伤/自杀/饮食失调的精细分级处理策略</div></div>
+            <div class="arch-card"><div class="arch-tag"><code>&lt;anthropic_reminders&gt;</code></div><div class="arch-title">运行时动态注入机制</div><div class="arch-desc">Anthropic 可在用户消息末尾插入分类器触发的提醒</div></div>
+            <div class="arch-card"><div class="arch-tag"><code>&lt;evenhandedness&gt;</code></div><div class="arch-title">政治/伦理公正性</div><div class="arch-desc">争议性话题不倡导立场，呈现多方最佳论点</div></div>
+            <div class="arch-card"><div class="arch-tag"><code>&lt;responding_to_mistakes&gt;</code></div><div class="arch-title">错误处理与自尊</div><div class="arch-desc">承认错误但不自我贬低，抵制顺从压力</div></div>
+            <div class="arch-card"><div class="arch-tag"><code>&lt;knowledge_cutoff&gt;</code></div><div class="arch-title">知识截止日期处理</div><div class="arch-desc">2026年1月底截止，提示用户开启网络搜索</div></div>
+          </div>
           <div class="hl"><strong>设计哲学：</strong>整个 system prompt 使用 XML 标签分层组织，每个模块职责单一、边界清晰。这正是看板"Prompt Engineering Best Practices"章节推荐的 XML 标签结构化写法的实战体现。</div>
         </div>
       </div>
