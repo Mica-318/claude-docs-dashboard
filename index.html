@@ -40,7 +40,15 @@
       -webkit-background-clip: text; -webkit-text-fill-color: transparent;
     }
     .header .sub { color: var(--text-dim); font-size: 0.82rem; margin-top: 0.2rem; }
-    .header-meta { display: flex; gap: 0.75rem; margin-top: 0.6rem; flex-wrap: wrap; }
+    .header-meta-toggle {
+      display: flex; align-items: center; gap: 0.4rem;
+      margin-top: 0.5rem; cursor: pointer; user-select: none;
+      color: var(--text-dim); font-size: 0.75rem;
+    }
+    .header-meta-toggle .arrow { transition: transform 0.2s; display: inline-block; }
+    .header-meta-toggle.open .arrow { transform: rotate(90deg); }
+    .header-meta { display: flex; gap: 0.75rem; margin-top: 0.5rem; flex-wrap: wrap; }
+    .header-meta.collapsed { display: none; }
     .header-meta span {
       background: var(--bg-card); padding: 0.15rem 0.55rem;
       border-radius: 4px; border: 1px solid var(--border); font-size: 0.72rem; color: var(--text-dim);
@@ -235,7 +243,10 @@
 <div class="header">
   <h1>🧠 Claude Developer Platform — 官方文档 · 中英文对照看板</h1>
   <div class="sub">docs.anthropic.com + GitHub 互动教程全量 · 实时抓取，共 31 个页面 / 章节</div>
-  <div class="header-meta">
+  <div class="header-meta-toggle" id="metaToggle" onclick="toggleMeta()">
+    <span class="arrow">▶</span><span>已收录 19 个章节 · 点击展开</span>
+  </div>
+  <div class="header-meta collapsed" id="headerMeta">
     <span>📅 2026-05-17</span>
     <span>✅ Opus 4.7 调优指南</span>
     <span>✅ Prompt Overview</span>
@@ -3821,6 +3832,27 @@ Events after cutoff: explicitly acknowledge uncertainty, direct to web search
 </div>
 
 <script>
+function toggleMeta() {
+  const meta = document.getElementById('headerMeta');
+  const toggle = document.getElementById('metaToggle');
+  const collapsed = meta.classList.toggle('collapsed');
+  toggle.classList.toggle('open', !collapsed);
+  toggle.querySelector('span:last-child').textContent = collapsed
+    ? '已收录 19 个章节 · 点击展开'
+    : '已收录 19 个章节 · 点击折叠';
+}
+
+// PC 上默认展开
+if (window.innerWidth > 900) {
+  document.addEventListener('DOMContentLoaded', () => {
+    const meta = document.getElementById('headerMeta');
+    const toggle = document.getElementById('metaToggle');
+    meta.classList.remove('collapsed');
+    toggle.classList.add('open');
+    toggle.querySelector('span:last-child').textContent = '已收录 19 个章节 · 点击折叠';
+  });
+}
+
 function show(id, el) {
   document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
   document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
